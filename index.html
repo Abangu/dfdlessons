@@ -3,60 +3,282 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VIDEO</title>
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-      rel="stylesheet"
-    /> -->
-    <link rel="stylesheet" href="reset.css" />
+    <title>Document</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="swiper-bundle.min.css" />
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <!-- https://unpkg.com/swiper@8.1.6/swiper-bundle.min.css -->
   </head>
   <body>
-    <header class="header">
-      <div class="header__top">
-        <div class="logo">
-          <a href="#">
-            <img src="logo.png" alt="" />
-          </a>
-        </div>
-        <nav class="menu">
-          <ul class="menu__list">
-            <div class="info__check">
-              <p class="width__info" id="width-display">Ширина:</p>
-              <p class="height__info" id="height-display">Высота:</p>
+    <!-- INFO -->
+    <div class="input__wrapper">
+      <p class="test__caption">
+        Уроков:
+        <b>
+          <span id="lessCount"></span>
+        </b>
+      </p>
+      <input
+        class="input__output"
+        type="number"
+        id="slide-number"
+        min="0"
+        oninput="difInput(this)"
+      />
+      <!-- <input class="input__output" type="text" id="slide-number1" /> -->
+      <!-- <p class="lesson__caption" id="lesson__caption">LESSON NAME</p> -->
+      <!-- <p class="test__caption" id="test__caption1">test__caption</p> -->
+    </div>
+    <!-- SLIDER -->
+    <div class="slide-container swiper">
+      <div class="slide-content">
+        <div class="card-wrapper swiper-wrapper">
+          <!-- 1 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-1.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="1"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile1.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">В. Н. Гаврилова</p>
+              <p class="description">
+                Наиблее распространённые слова для введения в курс Жестового
+                языка.
+              </p>
+              <p class="pointer">1</p>
             </div>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <!-- ОСНОВА -->
-    <section class="hat">
-      <div class="container">
-        <div class="operation__field">
-          <p class="lesson-name">Изучение</p>
-          <div class="fields">
-            <input
-              class="lesson-number"
-              type="number"
-              id="pageName"
-              placeholder="Введите номер урока"
-              oninput="difInput(this)"
-            />
-            <button class="lesson-open" onclick="goToPage()">
-              Открыть страницу
-            </button>
-            <p class="lesson__count">
-              Уроков:
-              <b>
-                <span id="lessCount"></span>
-              </b>
-            </p>
-          </div>
+          </a>
+          <!-- End 1 -->
+          <!-- 2 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-2.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="2"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile2.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Бабушка Нина</p>
+              <p class="description">Давайте познакомимся.</p>
+              <p class="pointer">2</p>
+            </div>
+          </a>
+          <!-- End 2 -->
+          <!-- 3 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-3.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="3"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile3.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Arkmedia</p>
+              <p class="description">Отношения, семья, общество ч.2.</p>
+              <p class="pointer">3</p>
+            </div>
+          </a>
+          <!-- End 3 -->
+          <!-- 4 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-4.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="4"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile4.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Бабушка Нина</p>
+              <p class="description">Семья.</p>
+              <p class="pointer">4</p>
+            </div>
+          </a>
+          <!-- End 4 -->
+          <!-- 5 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-5.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="5"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile5.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Бабушка Нина</p>
+              <p class="description">Дом, квартира.</p>
+              <p class="pointer">5</p>
+            </div>
+          </a>
+          <!-- End 5 -->
+          <!-- 6 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-6.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="6"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile6.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Бабушка Нина</p>
+              <p class="description">Школа, работа.</p>
+              <p class="pointer">6</p>
+            </div>
+          </a>
+          <!-- End 6 -->
+          <!-- 7 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-7.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="7"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile7.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Бабушка Нина</p>
+              <p class="description">Отдых.</p>
+              <p class="pointer">7</p>
+            </div>
+          </a>
+          <!-- End 7 -->
+          <!-- 8 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-8.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="8"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile8.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Бабушка Нина</p>
+              <p class="description">Время, природа.</p>
+              <p class="pointer">8</p>
+            </div>
+          </a>
+          <!-- End 8 -->
+          <!-- 9 -->
+          <a
+            class="card swiper-slide"
+            style="
+              background-image: url(images/image-9.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+            "
+            onclick="goToPage()"
+            data-index="9"
+          >
+            <!-- <div class="image-content">
+              <span class="overlay"></span>
+              <div class="card-image">
+                <img src="images/profile9.jpg" alt="" class="card-img" />
+              </div>
+            </div> -->
+            <div class="card-content1">
+              <p class="name">Бабушка Нина</p>
+              <p class="description">Мой день.</p>
+              <p class="pointer">9</p>
+            </div>
+          </a>
+          <!-- End 9 -->
         </div>
       </div>
-    </section>
-    <script src="script.js"></script>
+      <!-- https://codesandbox.io/p/sandbox/f78yv4?file=%2Findex.html -->
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <!-- <div class="button-wrapper">
+      <div class="button__test" onclick="testButton()" id="goToSlideBtn">
+        TEST!
+      </div>
+    </div> -->
   </body>
+  <!-- https://unpkg.com/swiper@8.1.6/swiper-bundle.min.js -->
+  <!-- https://codesandbox.io/p/sandbox/f78yv4?file=%2Findex.html%3A93%2C26 -->
+  <!-- Swiper JS -->
+  <script src="swiper-bundle.min.js"></script>
+  <!-- Java Script -->
+  <script src="script.js"></script>
 </html>

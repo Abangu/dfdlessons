@@ -1,143 +1,235 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  /* Запрещает прокрутку, если контент не помещается */
-  overflow: hidden;
-}
-
-.container {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  max-width: 1170px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  background-color: pink;
-}
-
-.header__top {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1170px;
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
   align-items: center;
-}
-
-.menu__list {
-  display: flex;
-}
-
-.width__info,
-.height__info {
-  font-size: 20px;
-  background-color: #f0f0f0;
-  padding: 10px;
-  text-align: center;
-}
-
-/* СЛЕД  */
-.operation__field {
-  padding-top: 50px;
-  min-height: 850px;
-  flex-direction: column;
-  display: flex;
-  justify-content: top;
-  align-items: center;
-}
-
-.lesson-name {
-  font-size: 24px;
-  font-weight: 900;
   justify-content: center;
-  align-items: center;
+  background-color: #efefef;
+  /* !!!!!! */
+  flex-direction: column;
 }
 
-.fields {
-  margin-top: 30px;
+.input__wrapper {
+  display: flex;
+  flex-direction: column; /* Элементы в колонку */
+  align-items: center;
+  justify-content: center;
+}
+/* My */
+.input__output {
+  padding: 5px;
+  border: 2px solid #265df2;
+  border-radius: 6px;
+  width: 300px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.test__caption {
+  width: 300px;
+  margin: 30px 0;
+  padding: 5px;
+  font-size: 24px;
+  text-align: center;
+  /* border: 2px solid #265df2;
+  border-radius: 6px; */
+}
+.lesson__caption {
+  width: 380px;
+  margin: 30px 0 0 0;
+  padding: 5px;
+  font-size: 22px;
+  text-align: center;
+  /* border: 2px solid #265df2;
+  border-radius: 6px; */
+}
+.slide-container {
+  /* My */
+  margin-top: 10px;
+  max-width: 1120px;
+  width: 100%;
+  /* background-color: gray; */
+  padding: 40px 0;
+}
+
+.slide-content {
+  /* padding: 45px 20px; */
+  margin: 0 40px;
+  /* background-color: red; */
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.card {
+  /* width: 320px; */
+  height: 350px;
+  border-radius: 25px;
+  background-color: #fff;
+}
+
+.image-content,
+.card-content {
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
+  padding: 10px 14px;
 }
 
-.lesson-number {
-  width: 180px;
-  background-color: aquamarine;
-  border: 2px solid #000;
-  border-radius: 8px;
-  padding: 9px;
+.card-content1 {
+  margin-top: 154px;
+  height: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+  color: #fff;
+  background-color: #5353539a;
+  border-radius: 0 0 25px 25px;
+}
+
+.image-content {
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #4070f4;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  /* background-color: red; */
+  background-color: #4070f4;
+}
+
+.overlay::after {
+  border-radius: 0 25px 0 0;
+  /* background-color: #265df2; */
+  background-color: #fff;
+}
+
+.card-image {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 3px;
+}
+
+.card-image .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070f4;
+}
+
+.name {
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  /* color: #333; */
+  color: #fff;
+}
+
+.description {
+  margin-top: 20px;
+  width: 90%;
+  font-size: 18px;
+  text-align: left;
+  /* color: #707070; */
+  color: #fff;
+
+  /* text-align: center; */
+}
+
+.pointer {
+  position: absolute;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  padding: 8px 16px;
+  background-color: #4070f4;
+  border-radius: 6px;
+  margin-top: 120px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pointer:hover {
+  background: #265df2;
+}
+
+.swiper-navBtn {
+  color: #6e93f7;
+  transition: color 0.3s ease;
+}
+.swiper-navBtn:hover {
+  color: #4070f4;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 40px;
+}
+.swiper-pointer-next {
+  right: 0;
+}
+.swiper-pointer-prev {
+  left: 0;
+}
+
+.swiper-pagination-bullet {
+  background-color: #6e93f7;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background-color: #4070f4;
+}
+
+.button__test {
+  display: flex;
+  justify-content: center; /* По горизонтали */
+  align-items: center; /* По вертикали */
+  background-color: greenyellow;
+  margin-top: 100px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #4070f4;
+  border-radius: 5px;
   text-align: center;
 }
 
-.lesson-open {
-  margin-top: 30px;
-  width: 180px;
-  background-color: rgb(12, 166, 255);
-  border: 2px solid #000;
-  border-radius: 8px;
-  padding: 9px;
-  text-align: center;
-}
-
-.lesson__count {
-  margin-top: 30px;
-}
-@media (max-width: 428px) and (min-width: 406px) {
-  html,
-  body {
-    /* Занимает 100% высоты окна браузера */
-    height: 100vh;
-    /* Улучшенный вариант для мобильных (учитывает панели браузера) */
-    height: 100dvh;
-
-    /* Убирает внешние и внутренние отступы по умолчанию */
-    margin: 0;
-    padding: 0;
-
-    /* Запрещает прокрутку, если контент не помещается */
-    overflow: hidden;
+@media screen and (max-width: 768px) {
+  .slide-content {
+    margin: 0 10px;
   }
 
-  .width__info,
-  .height__info {
-    font-size: 15px;
-    background-color: #f0f0f0;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .container {
-    max-width: 406px;
-    max-height: 666px;
-    margin-top: auto;
-    background-color: #a0f195;
-  }
-}
-@media (max-width: 384px) {
-  .width__info,
-  .height__info {
-    font-size: 15px;
-    background-color: #f0f0f0;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .container {
-    max-width: 384px;
-    max-height: 595px;
-    margin-top: auto;
-    background-color: #a0f195;
+  .swiper-navBtn {
+    display: none;
   }
 }
