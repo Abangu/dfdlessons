@@ -193,7 +193,7 @@ document.querySelectorAll(".card").forEach((item) => {
         //fldlines[name - 1]
         if (name) {
           // 4. Формируем URL и переходим (например, page1.html)
-          // window.location.href = "lesson" + name + "/index.html"; - для стандартного расположения
+          // window.location.href = "dfdlessons/lesson" + name + "/index.html"; - для стандартного расположения
           window.location.href = "/index" + name + ".html";
 
           // Отправляем данные в дочерние окна
