@@ -194,7 +194,7 @@ document.querySelectorAll(".card").forEach((item) => {
         if (name) {
           // 4. Формируем URL и переходим (например, page1.html)
           // window.location.href = "dfdlessons/lesson" + name + "/index.html"; - для стандартного расположения
-          window.location.href = "/index" + name + ".html";
+          window.location.href = "dfdlessons/index" + name + ".html";
 
           // Отправляем данные в дочерние окна
           let valPas = name;
