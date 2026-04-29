@@ -11,6 +11,26 @@
     <!-- https://unpkg.com/swiper@8.1.6/swiper-bundle.min.css -->
   </head>
   <body>
+    <div class="header">
+      <div class="logo">
+        <a href="#">
+          <img src="logo.png" alt="" class="card-img" />
+        </a>
+      </div>
+      <div class="menu">
+        <div class="info__check">
+          <div class="info__width">
+            <p class="width__caption">Ширина страницы:</p>
+            <p class="width__value" id="width-display"></p>
+          </div>
+          <div class="info__height">
+            <p class="height__caption">Высота страницы:</p>
+            <p class="height__value" id="height-display">Высота страницы:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- INFO -->
     <div class="input__wrapper">
       <p class="test__caption">
@@ -27,7 +47,7 @@
         oninput="difInput(this)"
       />
       <!-- <input class="input__output" type="text" id="slide-number1" /> -->
-      <!-- <p class="lesson__caption" id="lesson__caption">LESSON NAME</p> -->
+      <p class="lesson__caption" id="lesson__caption">LESSON NAME</p>
       <!-- <p class="test__caption" id="test__caption1">test__caption</p> -->
     </div>
     <!-- SLIDER -->

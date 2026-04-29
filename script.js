@@ -41,6 +41,15 @@ var swiper = new Swiper(".slide-content", {
     slideChange: function () {
       // При смене слайда обновляем значение
       document.getElementById("slide-number").value = this.realIndex + 1;
+      const filePath = "folderlist.txt";
+      fetch(filePath)
+        .then((response) => response.text())
+        .then((content) => {
+          // Разбиваем текст по переносам строк и считаем элементы
+          const lines = content.split(/\r\n|\r|\n/);
+          document.getElementById("lesson__caption").textContent =
+            "Урок: " + lines[document.getElementById("slide-number").value - 1];
+        });
     },
   },
 });
@@ -60,8 +69,8 @@ fetch(filePath)
 
     //Выводим количество строк при первом взаимодействии с полем input в p-span
     document.getElementById("lessCount").textContent = " " + maxLess;
-    // document.getElementById("lesson__caption").textContent =
-    //   "Урок: " + lines[0];
+    document.getElementById("lesson__caption").textContent =
+      "Урок: " + lines[0];
   });
 
 // Ограничение вводимых значений
@@ -76,27 +85,7 @@ function difInput(input) {
   if (input.value.length > 1 && input.value[0] === "0") {
     input.value = input.value.replace(/^0+/, "");
   }
-  // if (input.value.length > 1 && input.value[0] === "-") {
-  //   input.value = input.value.replace(/^-+/, "");
-  // }
 }
-
-// input.addEventListener("input", function (e) {
-//   // 1. Получаем текущее значение
-//   let value = e.target.value;
-//   // 2. Если значение отрицательное (или ввели '-' первым),
-//   // берем абсолютное значение (убираем знак)
-//   if (value < 0) {
-//     e.target.value = Math.abs(value);
-//     swiper.update();
-//   }
-
-//   swiper.unlockSwipeToPrev();
-//   swiper.unlockSwipeToNext();
-//   // Принудительное обновление состояния
-//   // 3. Дополнительная защита: удаляем все, кроме цифр, если type="text"
-//   // e.target.value = value.replace(/[^0-9]/g, '');
-// });
 
 // Слушаем событие ввода
 input.addEventListener("input", async () => {
@@ -170,12 +159,11 @@ input.addEventListener("input", async () => {
   updateCardPerView();
   const index = parseInt(input.value); // Получаем число из инпута
   swiper.slideTo(index + currentSlidesPerView - 1, 500);
-  slidBuff = index + currentSlidesPerView - 1;
-  swiper.update(); // Принудительное обновление состояния
-  // document.getElementById("test__caption").textContent = currentSlidesPerView;
-  document.getElementById("lesson__caption").textContent =
-    "Урок: " + lines[slidBuff];
+  slidBuff = index - 1;
+  // swiper.update(); // Принудительное обновление состояния
 });
+
+///////////////////// ПЕРЕДАЧА ДАННЫХ В ДОЧЕРНИЕ СТРАНИЦЫ ////////////////////////
 
 document.querySelectorAll(".card").forEach((item) => {
   item.addEventListener("click", function (event) {
@@ -194,7 +182,8 @@ document.querySelectorAll(".card").forEach((item) => {
         if (name) {
           // 4. Формируем URL и переходим (например, page1.html)
           // window.location.href = "lesson" + name + "/index.html"; - для стандартного расположения
-          window.location.href = "index" + name + ".html";
+          // При публикации на github необходимо перед началом этого пути указать имя проекта на github, например
+          window.location.href = "/index" + name + ".html";
 
           // Отправляем данные в дочерние окна
           let valPas = name;
@@ -206,3 +195,16 @@ document.querySelectorAll(".card").forEach((item) => {
       });
   });
 });
+
+/////////////////// ПОЛУЧЕНИЕ ЗНАЧЕНИЙ ПАРАМЕТРОВ СТРАНИЦЫ ///////////////////////
+
+function updateWidth() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  document.getElementById("width-display").innerText = width + "px";
+  document.getElementById("height-display").innerText = height + "px";
+}
+
+// Запускаем при загрузке и при изменении размера
+window.addEventListener("resize", updateWidth);
+updateWidth(); // Первоначальный вызов

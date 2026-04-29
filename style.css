@@ -10,7 +10,7 @@
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +18,57 @@ body {
   /* !!!!!! */
   flex-direction: column;
 }
+/* HAT */
+.header {
+  display: flex;
+  justify-content: space-between; /* Элементы растягиваются по краям */
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1120px;
+  width: 100%; /* Контейнер должен иметь ширину */
+  height: 100px;
+  background-color: #265df2;
+}
 
+.info__check {
+  align-items: flex-start;
+}
+
+.info__width,
+.info__height {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.width__caption,
+.width__value {
+  font-size: 20px;
+  /* background-color: #f0f0f0; */
+  color: #fff;
+  padding: 0 10px 0 0;
+  text-align: left;
+}
+
+.height__caption,
+.height__value {
+  font-size: 20px;
+  /* background-color: #f0f0f0; */
+  color: #fff;
+  padding: 10px 10px 0 0;
+  text-align: left;
+}
+
+.width__value,
+.height__value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* SLIDER */
 .input__wrapper {
+  width: 90%;
   display: flex;
   flex-direction: column; /* Элементы в колонку */
   align-items: center;
@@ -37,7 +86,7 @@ body {
 }
 .test__caption {
   width: 300px;
-  margin: 30px 0;
+  margin: 100px 0 20px 0;
   padding: 5px;
   font-size: 24px;
   text-align: center;
@@ -45,11 +94,14 @@ body {
   border-radius: 6px; */
 }
 .lesson__caption {
-  width: 380px;
+  height: 50px;
   margin: 30px 0 0 0;
   padding: 5px;
   font-size: 22px;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   /* border: 2px solid #265df2;
   border-radius: 6px; */
 }
@@ -131,16 +183,27 @@ body {
   background-color: #fff;
 }
 
-.card-image {
+.card-image,
+.logo {
   position: relative;
-  height: 150px;
-  width: 150px;
+  margin-left: 10px;
+  /* height: 150px;
+  width: 150px; */
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   background: #fff;
   padding: 3px;
 }
 
-.card-image .card-img {
+.card-image .card-img .logo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070f4;
+}
+.logo .card-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
