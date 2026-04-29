@@ -183,7 +183,7 @@ document.querySelectorAll(".card").forEach((item) => {
           // 4. Формируем URL и переходим (например, page1.html)
           // window.location.href = "lesson" + name + "/index.html"; - для стандартного расположения
           // При публикации на github необходимо перед началом этого пути указать имя проекта на github, например
-          window.location.href = "dfdlessons/index" + name + ".html";
+          window.location.href = "index" + name + ".html";
 
           // Отправляем данные в дочерние окна
           let valPas = name;
