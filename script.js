@@ -165,7 +165,7 @@ input.addEventListener("input", async () => {
 
 ///////////////////// ПЕРЕДАЧА ДАННЫХ В ДОЧЕРНИЕ СТРАНИЦЫ ////////////////////////
 
-document.querySelectorAll(".card").forEach((item) => {
+document.querySelectorAll(".pointer").forEach((item) => {
   item.addEventListener("click", function (event) {
     // Получаем значение data-index
     const name = this.dataset.index;
@@ -182,7 +182,8 @@ document.querySelectorAll(".card").forEach((item) => {
         if (name) {
           // 4. Формируем URL и переходим (например, page1.html)
           // window.location.href = "lesson" + name + "/index.html"; - для стандартного расположения
-          // При публикации на github необходимо перед началом этого пути указать имя проекта на github, например
+          // При публикации на github необходимо перед началом этого пути указать имя проекта на github
+          // например, убрать слэш /
           window.location.href = "index" + name + ".html";
 
           // Отправляем данные в дочерние окна

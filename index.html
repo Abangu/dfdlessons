@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- ===== Fontawesome CDN Link ===== -->
+    <!-- https://cdnjs.com/libraries/font-awesome/6.0.0-beta3 -->
+    <!-- https://fontawesome.com/search?q=youtube -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="swiper-bundle.min.css" />
     <!-- CSS -->
@@ -55,7 +65,7 @@
       <div class="slide-content">
         <div class="card-wrapper swiper-wrapper">
           <!-- 1 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-1.jpg);
@@ -63,27 +73,27 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="1"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile1.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/23p5WcCpt4A?si=BKx59DZ4MoLIx2JP"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">В. Н. Гаврилова</p>
               <p class="description">
                 Наиблее распространённые слова для введения в курс Жестового
                 языка.
               </p>
-              <p class="pointer">1</p>
+              <a class="pointer" data-index="1">1</a>
             </div>
-          </a>
+          </div>
           <!-- End 1 -->
           <!-- 2 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-2.jpg);
@@ -91,24 +101,30 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="2"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile2.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/J1XPinYNRfw?si=GIiNFMZcgH2ALwvy"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+              <a
+                href="https://youtu.be/w-QWE3w8MPo?si=YQj84Zzm1ssTZ4qR"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Бабушка Нина</p>
               <p class="description">Давайте познакомимся.</p>
-              <p class="pointer">2</p>
+              <a class="pointer" data-index="2">2</a>
             </div>
-          </a>
+          </div>
           <!-- End 2 -->
           <!-- 3 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-3.jpg);
@@ -116,24 +132,24 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="3"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile3.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/9-rYcJuXzfI?si=7rzac3t2VChTrke9"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Arkmedia</p>
               <p class="description">Отношения, семья, общество ч.2.</p>
-              <p class="pointer">3</p>
+              <a class="pointer" data-index="3">3</a>
             </div>
-          </a>
+          </div>
           <!-- End 3 -->
           <!-- 4 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-4.jpg);
@@ -141,24 +157,24 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="4"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile4.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/2tBapwEJXVc?si=g9OuCRK6TgdTNwHU"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Бабушка Нина</p>
               <p class="description">Семья.</p>
-              <p class="pointer">4</p>
+              <a class="pointer" data-index="4">4</a>
             </div>
-          </a>
+          </div>
           <!-- End 4 -->
           <!-- 5 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-5.jpg);
@@ -166,24 +182,24 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="5"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile5.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/Dc02OGdtnyU?si=SGzPc74iZNRYbIFv"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Бабушка Нина</p>
               <p class="description">Дом, квартира.</p>
-              <p class="pointer">5</p>
+              <a class="pointer" data-index="5">5</a>
             </div>
-          </a>
+          </div>
           <!-- End 5 -->
           <!-- 6 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-6.jpg);
@@ -191,24 +207,30 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="6"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile6.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/WUqBXK5DzRI?si=ES21T15CtEON0ghy"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+              <a
+                href="https://youtu.be/z3pNspFpvYU?si=dCygN5IfF0X7kEgy"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Бабушка Нина</p>
               <p class="description">Школа, работа.</p>
-              <p class="pointer">6</p>
+              <a class="pointer" data-index="6">6</a>
             </div>
-          </a>
+          </div>
           <!-- End 6 -->
           <!-- 7 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-7.jpg);
@@ -216,24 +238,24 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="7"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile7.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/aagMJUftMTU?si=jNazn6EMJXtULg-k"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Бабушка Нина</p>
               <p class="description">Отдых.</p>
-              <p class="pointer">7</p>
+              <a class="pointer" data-index="7">7</a>
             </div>
-          </a>
+          </div>
           <!-- End 7 -->
           <!-- 8 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-8.jpg);
@@ -241,24 +263,30 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="8"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile8.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/YIeX0y5JJkY?si=PtY6D2AfOvBkCm_f"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+              <a
+                href="https://youtu.be/RmDPXiKiRRI?si=lOiIR8LVpO8BF_aK"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Бабушка Нина</p>
               <p class="description">Время, природа.</p>
-              <p class="pointer">8</p>
+              <a class="pointer" data-index="8">8</a>
             </div>
-          </a>
+          </div>
           <!-- End 8 -->
           <!-- 9 -->
-          <a
+          <div
             class="card swiper-slide"
             style="
               background-image: url(images/image-9.jpg);
@@ -266,21 +294,21 @@
               background-size: cover;
               background-position: center;
             "
-            onclick="goToPage()"
-            data-index="9"
           >
-            <!-- <div class="image-content">
-              <span class="overlay"></span>
-              <div class="card-image">
-                <img src="images/profile9.jpg" alt="" class="card-img" />
-              </div>
-            </div> -->
+            <div class="media-icons">
+              <a
+                href="https://youtu.be/0jDqNlqR-zI?si=HL4mJAjb_Tc4xZgF"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
             <div class="card-content1">
               <p class="name">Бабушка Нина</p>
               <p class="description">Мой день.</p>
-              <p class="pointer">9</p>
+              <a class="pointer" data-index="9">9</a>
             </div>
-          </a>
+          </div>
           <!-- End 9 -->
         </div>
       </div>
