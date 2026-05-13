@@ -125,24 +125,36 @@ input.addEventListener("input", async () => {
 let matches = []; // Массив индексов найденных строк
 let currentMatchIndex = -1; // Индекс в массиве matches
 
-const inputSearch = document.getElementById("searchInput");
+const inputSearch = document.getElementById("searchInput"); // Окно поиска
 //befWord
-const resultSpan = document.getElementById("myHeader");
+const resultSpan = document.getElementById("myHeader"); // Заголовок, основное слово
 //afterWord
-const lineInfoSpan = document.getElementById("lineInfo");
+const lineInfoSpan = document.getElementById("lineInfo"); // Строка информации под окном поиска
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const cleanBtn = document.getElementById("cleanBtn");
 
 // // 1. Загрузка файла с помощью fetch
 // Определение пременной Slines, следующей далее в этом блоке, переходит вверх
-
+// inputSearch.addEventListener("input", function () {
+//   // 3. Проверяем, есть ли текст (убираем пробелы по краям)
+//   if (this.value.trim() !== "") {
+//     cleanBtn.disabled = false; // Делаем доступной
+//   } else {
+//     cleanBtn.disabled = true; // Делаем заблокированной
+//   }
+// });
 // 2. Функция поиска
 function performSearch() {
+  // То, что вводится в окно поиска searchInput и регистр - маленькие буквы
   const query = inputSearch.value.toLowerCase();
-  matches = [];
-  currentMatchIndex = -1;
-
+  matches = []; // Обнуление массива
+  currentMatchIndex = -1; // определение первого значения массива
+  //Если в searchInput что-то набрано
   if (query.length > 0) {
+    // Формируем массив, набирая слова включающие введенное значение
+    // document.getElementById("temp__val").textContent = "Больше!"; Подтверждение, что в searchInput есть символы
+
     Slines.forEach((line, index) => {
       if (line.toLowerCase().includes(query)) {
         matches.push(index); // Сохраняем номер строки
@@ -155,6 +167,7 @@ function performSearch() {
 
 // 3. Обновление интерфейса (результаты + кнопки)
 function updateUI() {
+  //Если в searchInput массиве любое количество значений
   if (matches.length > 0) {
     currentMatchIndex = 0;
     displayMatch();
@@ -169,6 +182,13 @@ function updateUI() {
   if (matches.length <= 1) {
     prevBtn.disabled = true;
     nextBtn.disabled = true;
+
+    updateUI;
+  }
+  if (matches.length < 1) {
+    cleanBtn.disabled = false; // Здесь!?
+
+    updateUI;
   }
 }
 
@@ -177,6 +197,9 @@ function displayMatch() {
   if (currentMatchIndex >= 0 && currentMatchIndex < matches.length) {
     const lineIdx = matches[currentMatchIndex];
     const resultSpan = document.getElementById("myHeader");
+    //Дописано мной
+    //При достижении граничных значений в окне поиска, уточняем значения ДО и ПОСЛЕ
+    //для показа их справа и слева от myHeader
     let buflineIdxMinus = lineIdx - 1;
     let buflineIdxPlus = lineIdx + 1;
     let SMaxVal = Slines.length;
@@ -193,12 +216,16 @@ function displayMatch() {
     } else {
       aftWord.textContent = Slines[buflineIdxPlus];
     }
-
+    // Вывод в lineInfo (под поиском)
     lineInfoSpan.textContent = `${currentMatchIndex + 1} / ${matches.length} (строка ${lineIdx + 1})`;
     document.getElementById("myInput").value = lineIdx + 1;
     // Управление disabled для навигации
+    // Если равно нулю, кнопка ПРЕД disabled
     prevBtn.disabled = currentMatchIndex === 0;
+    // Если максимальное значение, кнопка ПОСЛ disabled
     nextBtn.disabled = currentMatchIndex === matches.length - 1;
+
+    cleanBtn.disabled = currentMatchIndex === "";
   }
 }
 
@@ -232,13 +259,14 @@ let BmaxVal;
 // 2. Добавляем слушатель событий на поле ввода
 inputField.addEventListener("input", function () {
   // НАДО ИСПОЛЬЗОВАТЬ СОБЫТИЕ КЛИК, для запоминания исходного числа
+
   // .trim() удаляет лишние пробелы по краям
   if (this.value.trim() === "") {
     // Возвращаемся к переменным показанным до начала функции поиска
     document.getElementById("myInput").value = globalValue; // myInput
     // document.getElementById("temp__val").textContent = "УДАЛЕНО!"; /////////////////////////////////////////////////////////
-    befWord.textContent = "Лево!";
-    aftWord.textContent = "Право";
+    // befWord.textContent = "Лево!";
+    // aftWord.textContent = "Право";
     const BfilePath = "lesson" + globalData + "/video/example1.txt"; // myHeader
     fetch(BfilePath)
       .then((response) => response.text())
@@ -265,6 +293,9 @@ inputField.addEventListener("input", function () {
         }
       });
   }
+  if (query.length > 0) {
+    cleanBtn.disabled = false;
+  }
 });
 
 nextBtn.addEventListener("click", () => {
@@ -280,6 +311,18 @@ prevBtn.addEventListener("click", () => {
     displayMatch();
   }
 });
+
+cleanBtn.addEventListener("click", () => {
+  document.getElementById("searchInput").value = "";
+  lineInfoSpan.textContent = "0 / 0";
+  prevBtn.disabled = true;
+  nextBtn.disabled = true;
+  cleanBtn.disabled = true;
+  cleanBtn.disabled = true;
+  currentMatchIndex = 0;
+  matches = [];
+});
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // ПЕРВАЯ КНОПКА

@@ -116,20 +116,32 @@ button:disabled {
   justify-content: top;
   align-items: center;
 }
-
+.search__general {
+  flex-direction: column;
+}
 .search__horizontal {
   height: 60px;
   padding: 0;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
+  display: flex;
+  justify-content: space-between; /* Распределяет пространство между элементами */
+  align-items: center; /* Выравнивание по вертикали */
+  margin-left: auto;
+  margin-right: auto;
+}
+.dummy {
+  width: 300px;
 }
 .search__field {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.clean__button-wrap {
+  width: 300px;
+  display: flex;
+  justify-content: flex-end; /* Выравнивает содержимое по правому краю */
+  margin-right: 10px;
+}
 .result__wrap {
   display: flex;
   justify-content: center;
@@ -144,6 +156,10 @@ button:disabled {
   margin-left: 10px;
   border-radius: 5px;
   font-size: 18px;
+}
+
+.clean__button {
+  margin-left: 10px;
 }
 
 .header__wrapper {
@@ -368,7 +384,7 @@ p b span {
 
   .info__check {
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px;
   }
 
@@ -384,27 +400,48 @@ p b span {
   }
 
   .search__horizontal {
-    height: 70px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    height: 50px;
+    display: flex;
+    justify-content: space-between; /* Распределяет пространство между элементами */
+    align-items: center; /* Выравнивание по вертикали */
+  }
+
+  .dummy {
+    width: 10px;
+  }
+
+  .prevBtn {
+    width: 50px;
   }
   .search__field {
-    margin-top: 20px;
+    /* margin-top: 10px; */
+  }
+  .search__input {
+    width: 150px;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .nextBtn {
+    width: 50px;
+  }
+  .clean__button-wrap {
+    width: 70px;
+    display: flex;
+    justify-content: flex-end; /* Выравнивает содержимое по правому краю */
+    margin-left: 20px;
+  }
+
+  .clean__button {
+    width: 80px;
+    text-align: center;
   }
 
   .result__wrap {
     justify-content: center;
     text-align: center;
     align-items: center;
-    height: 30px;
-    font-size: 14px;
-  }
-
-  .search__input {
-    width: 200px;
-    padding: 6px;
-    border-radius: 5px;
+    height: 20px;
     font-size: 14px;
   }
 
@@ -534,28 +571,50 @@ p b span {
   }
 
   .search__horizontal {
-    height: 70px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    height: 50px;
+    display: flex;
+    justify-content: space-between; /* Распределяет пространство между элементами */
+    align-items: center; /* Выравнивание по вертикали */
+  }
+
+  .dummy {
+    width: 10px;
+  }
+
+  .prevBtn {
+    width: 50px;
   }
   .search__field {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+  }
+  .search__input {
+    width: 150px;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .nextBtn {
+    width: 40px;
+  }
+  .clean__button-wrap {
+    width: 50px;
+    display: flex;
+    justify-content: flex-end; /* Выравнивает содержимое по правому краю */
+    margin-left: 25px;
+  }
+
+  .clean__button {
+    width: 60px;
+    text-align: center;
+    right: 0;
+    padding: 5px 4px 5px 4px;
   }
 
   .result__wrap {
-    margin-top: 5px;
     justify-content: center;
     text-align: center;
     align-items: center;
     height: 20px;
-    font-size: 14px;
-  }
-
-  .search__input {
-    width: 200px;
-    padding: 6px;
-    border-radius: 5px;
     font-size: 14px;
   }
 
@@ -675,27 +734,50 @@ p b span {
   }
 
   .search__horizontal {
-    height: 60px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    height: 50px;
+    display: flex;
+    justify-content: space-between; /* Распределяет пространство между элементами */
+    align-items: center; /* Выравнивание по вертикали */
+  }
+
+  .dummy {
+    width: 10px;
+  }
+
+  .prevBtn {
+    width: 50px;
   }
   .search__field {
-    margin-top: 15px;
+    /* margin-top: 10px; */
+  }
+  .search__input {
+    width: 150px;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .nextBtn {
+    width: 40px;
+  }
+  .clean__button-wrap {
+    width: 50px;
+    display: flex;
+    justify-content: flex-end; /* Выравнивает содержимое по правому краю */
+    margin-left: 25px;
+  }
+
+  .clean__button {
+    width: 60px;
+    text-align: center;
+    right: 0;
+    padding: 5px 4px 5px 4px;
   }
 
   .result__wrap {
     justify-content: center;
     text-align: center;
     align-items: center;
-    height: 30px;
-    font-size: 14px;
-  }
-
-  .search__input {
-    width: 200px;
-    padding: 6px;
-    border-radius: 5px;
+    height: 20px;
     font-size: 14px;
   }
 
