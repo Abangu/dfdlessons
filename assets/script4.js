@@ -176,18 +176,17 @@ function updateUI() {
     lineInfoSpan.textContent = "0 / 0";
     prevBtn.disabled = true;
     nextBtn.disabled = true;
+    cleanBtn.disabled = true;
   }
 
   // Блокировка кнопок, если результатов 1 или 0
   if (matches.length <= 1) {
     prevBtn.disabled = true;
     nextBtn.disabled = true;
-
     updateUI;
   }
   if (matches.length < 1) {
     cleanBtn.disabled = false; // Здесь!?
-
     updateUI;
   }
 }
@@ -245,6 +244,7 @@ function updateGlobalVariable() {
   // Получаем текст, преобразуем в число (parseInt или Number)
   if (globalValue === 0) {
     globalValue = paragraph.value;
+
     // document.getElementById("temp__val").textContent = globalValue; ///////////////////////////////////////////
     console.log("Значение в глобальной переменной:", globalValue);
   }
@@ -264,9 +264,10 @@ inputField.addEventListener("input", function () {
   if (this.value.trim() === "") {
     // Возвращаемся к переменным показанным до начала функции поиска
     document.getElementById("myInput").value = globalValue; // myInput
+    cleanBtn.disabled = true; // Здесь срабатывает disabled если удаляешь вручную!!!
     // document.getElementById("temp__val").textContent = "УДАЛЕНО!"; /////////////////////////////////////////////////////////
-    // befWord.textContent = "Лево!";
-    // aftWord.textContent = "Право";
+    document.getElementById("myHeader").textContent =
+      Slines[document.getElementById("myInput").value];
     const BfilePath = "lesson" + globalData + "/video/example1.txt"; // myHeader
     fetch(BfilePath)
       .then((response) => response.text())
@@ -321,6 +322,7 @@ cleanBtn.addEventListener("click", () => {
   cleanBtn.disabled = true;
   currentMatchIndex = 0;
   matches = [];
+  // document.getElementById("myHeader").textContent = Slines[];
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
