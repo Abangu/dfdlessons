@@ -16,7 +16,10 @@
             <img src="logo.png" alt="" data-tooltip="На главную" />
           </a>
         </div>
-        <!-- <p class="buffer__val"><span id="temp__val">Буфер:</span></p> -->
+        <!-- <p class="buffer__val"><span id="temp__val">Буфер:</span></p>
+        <p class="buffer__val"><span id="glob__val">glob val:</span></p>
+        <p class="buffer__val"><span id="cetval">cetval:</span></p> -->
+
         <nav class="menu">
           <ul class="menu__list">
             <div class="info__check">
@@ -25,140 +28,144 @@
               </p>
               <p id="inString"></p>
             </div>
-            <!-- <p class="width__info" id="width-display">Ширина:</p>
-              <p class="height__info" id="height-display">Высота:</p> -->
           </ul>
         </nav>
       </div>
     </header>
 
     <!-- ОСНОВА -->
-    <section class="video__chapter">
-      <div class="container">
-        <div class="operation__field">
-          <!-- ПОИСК СЛОВА -->
-          <div class="search__general">
-            <div class="search__horizontal">
-              <!-- 1 -->
-              <!-- Пустой элемент для баланса -->
-              <div class="dummy"></div>
-              <!-- 2 -->
-              <div class="search__field">
-                <!-- 2.1 -->
-                <button id="prevBtn" disabled>Пред</button>
-                <!-- 2.2 -->
-                <input
-                  class="search__input"
-                  type="text"
-                  id="searchInput"
-                  placeholder="Поиск"
-                />
-                <!-- 2.3 -->
-                <button id="nextBtn" disabled>След</button>
-              </div>
-              <!-- 3 -->
-              <div class="clean__button-wrap">
-                <button class="clean__button" id="cleanBtn" disabled>
-                  Очист
-                </button>
-              </div>
+
+    <div class="container">
+      <div class="operation__field">
+        <!-- ПОИСК СЛОВА -->
+        <div class="search__general">
+          <div class="search__horizontal">
+            <!-- 1 -->
+            <!-- Пустой элемент для баланса -->
+            <!-- Левый контейнер -->
+            <div class="sbox dummy">
+              <p class="search__info">
+                Строка: <span id="lineInfo">0 / 0</span>
+              </p>
             </div>
-            <div class="result__wrap">
-              <!-- <p>Результат: <span id="result"></span></p> -->
-              <p>Строка: <span id="lineInfo">0 / 0</span></p>
+            <!-- 2 -->
+            <!-- Средний контейнер -->
+            <div class="search__field">
+              <!-- 2.1 -->
+              <button class="btn-search" id="prevBtn" disabled>Пред</button>
+              <!-- 2.2 -->
+              <input
+                class="search__input"
+                type="text"
+                id="searchInput"
+                placeholder="Поиск"
+              />
+              <!-- 2.3 -->
+              <button class="btn-search" id="nextBtn" disabled>След</button>
+            </div>
+            <!-- 3 -->
+            <!-- Правый контейнер -->
+            <div class="sbox clean__button-wrap">
+              <button
+                class="clean__button right-absolute-btn"
+                id="cleanBtn"
+                disabled
+              >
+                Очист
+              </button>
             </div>
           </div>
-          <!-- КОНЕЦ ПОИСК СЛОВА -->
-          <div class="header__wrapper">
-            <p class="before__word" id="before__word">До</p>
-            <h1 id="myHeader">Просмотр</h1>
-            <p class="after__word" id="after__word">После</p>
-          </div>
-          <div class="video-container">
-            <video
-              id="myVideo"
-              controls
-              width="640"
-              height="360"
-              poster="assets/placeholder.jpeg"
-            >
-              <source src="" type="video/webm" />
-              Ваш браузер не поддерживает встроенные видео.
-            </video>
-          </div>
+          <!-- <div class="result__wrap"> -->
+          <!-- <p>Результат: <span id="result"></span></p> -->
+          <!-- <p>Строка: <span id="lineInfo">0 / 0</span></p> -->
+          <!-- </div> -->
+        </div>
+        <!-- КОНЕЦ ПОИСК СЛОВА -->
+        <div class="header__wrapper">
+          <p class="before__word" id="before__word">До</p>
+          <h1 id="myHeader">Просмотр</h1>
+          <p class="after__word" id="after__word">После</p>
+        </div>
+        <div class="video-container">
+          <video
+            id="myVideo"
+            controls
+            width="640"
+            height="360"
+            poster="assets/placeholder.jpeg"
+          >
+            <source src="" type="video/webm" />
+            Ваш браузер не поддерживает встроенные видео.
+          </video>
+        </div>
 
-          <!-- Блок серфинга -->
-          <!-- ПОЛЕ ВВОДА -->
+        <!-- Блок серфинга -->
+        <!-- ПОЛЕ ВВОДА -->
 
-          <div class="counter__input">
-            <p><span>Строка: </span></p>
-            <input
-              class="open__txt-file"
-              type="number"
-              id="myInput"
-              oninput="readLineInput(this)"
-            />
-            <p>
-              из:<b>
-                <span id="lineCount"></span>
-              </b>
-            </p>
-          </div>
+        <div class="counter__input">
+          <p><span>Строка: </span></p>
+          <input
+            class="open__txt-file"
+            type="number"
+            id="myInput"
+            oninput="readLineInput(this)"
+          />
+          <p>
+            из:<b>
+              <span id="lineCount"></span>
+            </b>
+          </p>
+        </div>
 
-          <!-- ОБЛАСТЬ КНОПОК -->
-          <div class="counter" data-counter>
-            <button
-              id="left__button-edge"
-              class="counter__button counter__button_minus-edge"
-              onclick="readLineFirstButton()"
-            >
-              Перв
-            </button>
-            <!-- <div class="middle__buttons"> -->
-            <button
-              id="left__button"
-              class="counter__button counter__button_minus"
-              onclick="readLinePrevButton()"
-            >
-              Пред
-            </button>
+        <!-- ОБЛАСТЬ КНОПОК -->
 
-            <button
-              id="rand__button"
-              class="counter__button counter__button_rand"
-              onclick="readLineRandButton()"
-            >
-              Произвольно
-            </button>
-
-            <button
-              id="right__button"
-              class="counter__button counter__button_plus"
-              onclick="readLineButton()"
-            >
-              След
-            </button>
-            <!-- </div> -->
-            <button
-              id="right__button-edge"
-              class="counter__button counter__button_plus-edge"
-              onclick="readLineLastButton()"
-            >
-              Посл
-            </button>
-          </div>
-
-          <button class="button__play" id="playBtn" onclick="playVideo()">
-            Воспроизвести
+        <div class="counter" data-counter>
+          <button
+            id="left__button-edge"
+            class="counter__button counter__button_minus-edge"
+            onclick="readLineFirstButton()"
+          >
+            Перв
+          </button>
+          <!-- <div class="middle__buttons"> -->
+          <button
+            id="left__button"
+            class="counter__button counter__button_minus"
+            onclick="readLinePrevButton()"
+          >
+            Пред
           </button>
 
-          <!-- <div class="info__file">
-            <p id="outtest"></p>
+          <button
+            id="rand__button"
+            class="counter__button counter__button_rand"
+            onclick="readLineRandButton()"
+          >
+            Произвольно
+          </button>
 
-          </div> -->
+          <button
+            id="right__button"
+            class="counter__button counter__button_plus"
+            onclick="readLineButton()"
+          >
+            След
+          </button>
+          <!-- </div> -->
+          <button
+            id="right__button-edge"
+            class="counter__button counter__button_plus-edge"
+            onclick="readLineLastButton()"
+          >
+            Посл
+          </button>
         </div>
+
+        <button class="button__play" id="playBtn" onclick="playVideo()">
+          Воспроизвести
+        </button>
       </div>
-    </section>
+    </div>
 
     <!-- Поменять номер скрипта на исходный 1. 3 - текстовой файл читается автоматически, но границы счёта не определены -->
     <script src="assets/script4.js"></script>
