@@ -5,18 +5,20 @@ const button = document.getElementById("playBtn");
 const display1 = document.getElementById("myHeader");
 const befWord = document.getElementById("before__word");
 const aftWord = document.getElementById("after__word");
-let Slines = []; // Массив для хранения всех строк файла
+let Slines; // Массив для хранения всех строк файла
 let searchBuff;
 let globalData;
 let StrBuff;
+let globalValue = 0;
 // Получение значений из главной страницы
 // В дочерней странице (child.html)
 window.onload = function () {
+  ///////////////////////////////// INFO BLOCK /////////////////////////////////////
+  // document.getElementById("temp__val").textContent = "НАЧАЛИ";
+  // document.getElementById("glob__val").textContent = globalValue;
+  ///////////////////////////////// INFO BLOCK /////////////////////////////////////
   const data = sessionStorage.getItem("sharedData");
-  // console.log(data); Выведет: "21"
-
   // Разбиваем текст по переносам строк и считаем элементы
-
   // Получаем список уроков из текстового файла
   if (data === null) {
     // 1. Получаем имя файла (например, "/folder/index21.html")
@@ -26,14 +28,17 @@ window.onload = function () {
     let matches = fileName.match(/\d+/);
     let number = matches ? matches[0] : null;
     const filePath = "folderlist.txt";
+    console.log(filePath);
     fetch(filePath)
       .then((response) => response.text())
       .then((content) => {
         let fldlines = content.split(/\r\n|\r|\n/);
+        let NameLess = fldlines.length;
+
+        // console.log(number);Выведет: "21"
+        document.getElementById("outtest").innerText = number; // Выведет "Урок №N"
+        document.getElementById("inString").innerText = fldlines[NameLess - 1];
       });
-    console.log(number); // Выведет: "21"
-    document.getElementById("outtest").innerText = number; // Выведет "Урок №N"
-    document.getElementById("inString").innerText = fldlines[number - 1];
     globalData = number;
   } else {
     document.getElementById("outtest").innerText = data; // Выведет "Урок №N"
@@ -124,7 +129,6 @@ input.addEventListener("input", async () => {
 
 let matches = []; // Массив индексов найденных строк
 let currentMatchIndex = -1; // Индекс в массиве matches
-
 const inputSearch = document.getElementById("searchInput"); // Окно поиска
 //befWord
 const resultSpan = document.getElementById("myHeader"); // Заголовок, основное слово
@@ -216,7 +220,8 @@ function displayMatch() {
       aftWord.textContent = Slines[buflineIdxPlus];
     }
     // Вывод в lineInfo (под поиском)
-    lineInfoSpan.textContent = `${currentMatchIndex + 1} / ${matches.length} (строка ${lineIdx + 1})`;
+    // lineInfoSpan.textContent = `${currentMatchIndex + 1} / ${matches.length} (строка ${lineIdx + 1})`;
+    lineInfoSpan.textContent = `${currentMatchIndex + 1} / ${matches.length} (${lineIdx + 1})`;
     document.getElementById("myInput").value = lineIdx + 1;
     // Управление disabled для навигации
     // Если равно нулю, кнопка ПРЕД disabled
@@ -233,7 +238,6 @@ inputSearch.addEventListener("input", performSearch);
 /////////////////////////////////////////////////////////////////////////
 // Сохраняем данные показанные до поиска
 // 1. Объявляем глобальную переменную
-let globalValue = 0;
 
 // 2. Получаем ссылки на элементы
 const inputField = document.getElementById("searchInput");
@@ -244,8 +248,11 @@ function updateGlobalVariable() {
   // Получаем текст, преобразуем в число (parseInt или Number)
   if (globalValue === 0) {
     globalValue = paragraph.value;
+    ///////////////////////////////// INFO BLOCK /////////////////////////////////////
+    // document.getElementById("temp__val").textContent = "ВВЕЛИ";
+    // document.getElementById("glob__val").textContent = globalValue;
+    ///////////////////////////////// INFO BLOCK /////////////////////////////////////
 
-    // document.getElementById("temp__val").textContent = globalValue; ///////////////////////////////////////////
     console.log("Значение в глобальной переменной:", globalValue);
   }
 }
@@ -265,9 +272,11 @@ inputField.addEventListener("input", function () {
     // Возвращаемся к переменным показанным до начала функции поиска
     document.getElementById("myInput").value = globalValue; // myInput
     cleanBtn.disabled = true; // Здесь срабатывает disabled если удаляешь вручную!!!
-    // document.getElementById("temp__val").textContent = "УДАЛЕНО!"; /////////////////////////////////////////////////////////
-    document.getElementById("myHeader").textContent =
-      Slines[document.getElementById("myInput").value];
+    //////////////////////////////// INFO BLOCK //////////////////////////////////
+    // document.getElementById("temp__val").textContent = "УДАЛ РУЧН";
+    // document.getElementById("glob__val").textContent = globalValue;
+    //////////////////////////////// INFO BLOCK //////////////////////////////////
+    document.getElementById("myHeader").textContent = Slines[globalValue];
     const BfilePath = "lesson" + globalData + "/video/example1.txt"; // myHeader
     fetch(BfilePath)
       .then((response) => response.text())
@@ -314,15 +323,55 @@ prevBtn.addEventListener("click", () => {
 });
 
 cleanBtn.addEventListener("click", () => {
+  if (globalValue === 0) {
+    //////////////////////////////// INFO BLOCK //////////////////////////////////
+    // document.getElementById("temp__val").textContent = "УДАЛ КНОП!";
+    // document.getElementById("glob__val").textContent = globalValue;
+    //////////////////////////////// INFO BLOCK //////////////////////////////////
+    globalValue = document.getElementById("myInput").value;
+  }
+
+  //////////////////////////////// INFO BLOCK //////////////////////////////////
+  // document.getElementById("temp__val").textContent = "УДАЛ КНОП!";
+  // document.getElementById("glob__val").textContent = globalValue;
+  //////////////////////////////// INFO BLOCK //////////////////////////////////
   document.getElementById("searchInput").value = "";
   lineInfoSpan.textContent = "0 / 0";
   prevBtn.disabled = true;
   nextBtn.disabled = true;
   cleanBtn.disabled = true;
-  cleanBtn.disabled = true;
   currentMatchIndex = 0;
   matches = [];
-  // document.getElementById("myHeader").textContent = Slines[];
+  document.getElementById("myInput").value = globalValue;
+
+  const UfilePath = "lesson" + globalData + "/video/example1.txt"; // myHeader
+  fetch(UfilePath)
+    .then((response) => response.text())
+    .then((content) => {
+      // Разбиваем текст по переносам строк и считаем элементы
+      Ulines = content.split(/\r\n|\r|\n/);
+      UmaxVal = Ulines.length;
+
+      let CetVal = globalValue - 1;
+      document.getElementById("myHeader").textContent = Ulines[globalValue];
+
+      document.getElementById("myHeader").textContent = Ulines[CetVal];
+      let CetValMinus = CetVal - 1;
+      let CetValPlus = CetVal + 1;
+      if (CetValMinus < 0) {
+        CetValMinus = UmaxVal - 1;
+        befWord.textContent = Ulines[CetValMinus];
+      } else {
+        befWord.textContent = Ulines[CetValMinus];
+      }
+      if (CetValPlus > UmaxVal - 1) {
+        CetValPlus = 0;
+        aftWord.textContent = Ulines[CetValPlus];
+      } else {
+        aftWord.textContent = Ulines[CetValPlus];
+      }
+      document.getElementById("cetval").textContent = CetVal;
+    });
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -359,13 +408,13 @@ function readLinePrevButton() {
       // if (myInput < 1) myInput = FmaxVal;
       if (myInput < 1) {
         myInput = FmaxVal;
-        befWord.textContent = Flines[FmaxVal - 2] + " 1";
+        befWord.textContent = Flines[FmaxVal - 2];
         aftWord.textContent = Flines[0];
       } else if (myInput === 1) {
-        befWord.textContent = Flines[FmaxVal - 1] + " 2";
+        befWord.textContent = Flines[FmaxVal - 1];
         aftWord.textContent = Flines[myInput];
       } else {
-        befWord.textContent = Flines[myInput - 2] + " 3";
+        befWord.textContent = Flines[myInput - 2];
         aftWord.textContent = Flines[myInput];
       }
 
@@ -379,7 +428,6 @@ function readLinePrevButton() {
 }
 
 // ПРОИЗВОЛЬНО КНОПКА
-
 function readLineRandButton() {
   const FfilePath = "lesson" + globalData + "/video/example1.txt";
   fetch(FfilePath)
