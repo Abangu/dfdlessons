@@ -96,11 +96,9 @@ button:disabled {
   display: flex;
   flex-direction: column;
   max-width: 1170px;
-  min-height: 868px;
+  min-height: 828px;
   margin-left: auto;
   margin-right: auto;
-  /* padding-left: 15px;
-  padding-right: 15px; */
   background-color: #b6eaff;
 }
 
@@ -153,14 +151,6 @@ button:disabled {
   /* text-align: center; */
 }
 
-.right-absolute-btn {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center; */
-  /* position: relative; */
-}
-
 /* Средний контейнер (занимает всё свободное место) */
 .search__field {
   display: flex;
@@ -187,12 +177,6 @@ button:disabled {
   text-align: center;
   overflow: hidden;
 }
-
-/* .result__wrap {
-  display: flex;
-  justify-content: center;
-  background-color: #7ccdec;
-} */
 
 .header__wrapper {
   display: flex;
@@ -267,7 +251,7 @@ p b span {
   flex-wrap: wrap; /* Разрешаем перенос */
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
   /* user-select: none; */
@@ -336,6 +320,17 @@ p b span {
   background-color: rgb(213, 234, 243);
 }
 
+.footer__field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(100, 204, 245);
+}
+
 /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* Медиа-запрос для диапазона 865px - 651px */
 @media (max-width: 865px) and (min-width: 651px) {
@@ -379,10 +374,61 @@ p b span {
     background-color: #edcef7;
     flex-direction: column; /* Вариант: вертикальный список */
   }
+  /* Поиск-шмоиск */
+  .search__horizontal {
+    background-color: #a0f195;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0 5px 0;
+    gap: 15px;
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+  .sbox .dummy {
+    /* flex: 1; */
+    display: flex;
+    text-align: right;
+    white-space: nowrap;
+  }
 
   .search__info {
     font-size: 12px;
   }
+
+  .search__field {
+    display: flex;
+    align-items: center;
+    /* flex-shrink: 1; */
+    gap: 10px; /* отступ между кнопками и инпутом */
+    flex-grow: 1; /* позволяет занять свободное пространство */
+    /* min-width: 0;  обязательно для flex-элементов, чтобы они могли корректно сжиматься */
+  }
+
+  .btn-search {
+    width: 60px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .search__input {
+    width: 170px;
+    box-sizing: border-box;
+  }
+
+  .sbox .clean__button-wrap {
+    flex-shrink: 0;
+    width: 60px;
+    box-sizing: border-box;
+  }
+
+  .clean__button {
+    width: 60px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  /* H1 Область показа слов */
   .before__word {
     font-size: 14px;
   }
@@ -437,15 +483,66 @@ p b span {
     width: 450px;
   }
 }
-@media (max-width: 500px) and (min-width: 429px) {
+@media (max-width: 500px) and (min-width: 430px) {
   .container {
     max-width: 500px;
     background-color: #a0f195;
     flex-direction: column; /* Вариант: вертикальный список */
   }
 
+  /* Поиск-шмоиск */
+  .search__horizontal {
+    background-color: #a0f195;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0 5px 0;
+    gap: 0px;
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+  .sbox .dummy {
+    /* flex: 1; */
+    display: flex;
+    text-align: right;
+    white-space: nowrap;
+  }
+
   .search__info {
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .search__field {
+    display: flex;
+    align-items: center;
+    /* flex-shrink: 1; */
+    gap: 3px; /* отступ между кнопками и инпутом */
+    flex-grow: 1; /* позволяет занять свободное пространство */
+    /* min-width: 0;  обязательно для flex-элементов, чтобы они могли корректно сжиматься */
+  }
+
+  .btn-search {
+    width: 55px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .search__input {
+    width: 160px;
+    box-sizing: border-box;
+  }
+
+  .sbox .clean__button-wrap {
+    flex-shrink: 0;
+    width: 55px;
+    box-sizing: border-box;
+  }
+
+  .clean__button {
+    width: 55px;
+    padding-left: 3px;
+    padding-right: 3px;
   }
   .before__word {
     font-size: 12px;
@@ -504,7 +601,7 @@ p b span {
   }
 }
 /* Poco X6 Pro */
-@media (max-width: 428px) and (min-width: 406px) {
+@media (max-width: 429px) and (min-width: 406px) {
   html,
   body {
     /* Занимает 100% высоты окна браузера */
@@ -535,7 +632,7 @@ p b span {
 
   .container {
     max-width: 428px;
-    max-height: 666px;
+    min-height: 640px;
     margin-top: auto;
     background-color: #a0f195;
   }
@@ -641,8 +738,8 @@ p b span {
 
   .counter__input {
     background-color: #24b176;
-
     margin-top: 15px;
+    padding: 10px 0 10px 0;
   }
 
   .counter:hover {
@@ -654,14 +751,14 @@ p b span {
   }
 
   .counter {
-    margin-top: 25px;
+    margin-top: 20px;
   }
 
   .counter__button_minus-edge,
   .counter__button_plus-edge {
     order: 1; /* Опускает элементы вниз */
     /* Перенастройка ширины для мобильных */
-    margin-top: 5px;
+    /* margin-top: 5px; */
     /* max-width: 115px;Элементы 1 и 5 под 2 и 4 */
     max-width: 27%; /* Элементы 1 и 5 под 2 и 4 */
   }
@@ -687,15 +784,21 @@ p b span {
   } */
 
   .button__play {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 380px;
   }
   .btn {
     transition: 0.2s opacity;
   }
+
+  .footer__field {
+    height: 40px;
+    max-width: 406px;
+    background-color: #24b176;
+  }
 }
 /* Mi Max 3 */
-@media (max-width: 405px) and (min-width: 392px) {
+@media (max-width: 405px) and (min-width: 385px) {
   html,
   body {
     /* Занимает 100% высоты окна браузера */
@@ -725,8 +828,8 @@ p b span {
   }
 
   .container {
-    max-width: 392px;
-    max-height: 558px;
+    max-width: 405px;
+    min-height: 535px;
     margin-top: auto;
     background-color: #a2aadb;
   }
@@ -840,7 +943,7 @@ p b span {
     /* Перенастройка ширины для мобильных */
     /* max-width: 115px;Элементы 1 и 5 под 2 и 4 */
     max-width: 27%; /* Элементы 1 и 5 под 2 и 4 */
-    margin-top: -5px;
+    margin-top: -10px;
   }
   .counter__button_minus,
   .counter__button_rand,
@@ -864,8 +967,15 @@ p b span {
   }
 
   .button__play {
-    margin-top: 15px;
+    height: 35px;
+    margin-top: 10px;
     width: 360px;
+  }
+
+  .footer__field {
+    height: 40px;
+    max-width: 405px;
+    background-color: #697dee;
   }
 }
 /* Samsung S24FE */
@@ -906,7 +1016,7 @@ p b span {
 
   .container {
     max-width: 384px;
-    max-height: 595px;
+    min-height: 570px;
     margin-top: auto;
     background-color: #f0c0d0;
   }
@@ -1004,6 +1114,7 @@ p b span {
   .counter__input {
     background-color: #f79ebb;
     margin-top: 10px;
+    padding: 5px 0 5px 0;
   }
   .open__txt-file {
     width: 80px;
@@ -1020,7 +1131,7 @@ p b span {
   .counter__button_plus-edge {
     order: 1; /* Опускает элементы вниз */
     /* Перенастройка ширины для мобильных */
-    margin-top: 0;
+    margin-top: -5px;
     /* max-width: 115px;Элементы 1 и 5 под 2 и 4 */
     max-width: 27%; /* Элементы 1 и 5 под 2 и 4 */
   }
@@ -1046,7 +1157,14 @@ p b span {
   }
 
   .button__play {
-    margin-top: 20px;
+    height: 35px;
+    margin-top: 15px;
     width: 355px;
+  }
+
+  .footer__field {
+    height: 40px;
+    max-width: 384px;
+    background-color: #f79ebb;
   }
 }
