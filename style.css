@@ -10,14 +10,15 @@
 }
 
 body {
-  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #efefef;
+  /* background-color: hsl(197, 100%, 86%); */
   /* !!!!!! */
   flex-direction: column;
+  height: 100dvh;
 }
+
 /* HAT */
 .header {
   display: flex;
@@ -68,11 +69,14 @@ body {
 
 /* SLIDER */
 .input__wrapper {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column; /* Элементы в колонку */
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1120px;
 }
 /* My */
 .input__output {
@@ -105,12 +109,13 @@ body {
   /* border: 2px solid #265df2;
   border-radius: 6px; */
 }
+
 .slide-container {
   /* My */
-  margin-top: 10px;
+  margin-top: 30px;
   max-width: 1120px;
   width: 100%;
-  /* background-color: gray; */
+  background-color: hsl(197, 100%, 86%);
   padding: 40px 0;
 }
 
@@ -139,8 +144,8 @@ body {
 }
 
 .card .media-icons i {
-  color: #fff;
-  opacity: 0.6;
+  color: #ff0000;
+  opacity: 0.8;
   margin-top: 10px;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -300,7 +305,7 @@ body {
   display: flex;
   justify-content: center; /* По горизонтали */
   align-items: center; /* По вертикали */
-  background-color: greenyellow;
+
   margin-top: 100px;
   width: 150px;
   height: 50px;
@@ -309,12 +314,210 @@ body {
   text-align: center;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  max-width: 1120px;
+  width: 100%; /* Контейнер должен иметь ширину */
+  height: 50px;
+  background-color: #265df2;
+  margin-top: auto;
+}
+.footer-gen__field {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-gen__field p {
+  text-align: center;
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
+  .slide-container .swiper {
+    /* Улучшенный вариант для мобильных (учитывает панели браузера) */
+    height: 100dvh;
+  }
+
   .slide-content {
     margin: 0 10px;
   }
 
   .swiper-navBtn {
     display: none;
+  }
+}
+
+@media (max-width: 429px) and (min-width: 406px) {
+  .input__wrapper {
+    height: 160px;
+  }
+
+  .input__output {
+    width: 130px;
+    padding: 5px;
+  }
+  .test__caption {
+    width: 300px;
+    margin: 10px 0 5px 0;
+  }
+
+  .lesson__caption {
+    height: 30px;
+    margin: 10px 0 0 0;
+    padding: 5px;
+  }
+
+  .slide-container {
+    /* My */
+    margin-top: 0;
+    max-width: 429x;
+    width: 100%;
+
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 405px) and (min-width: 385px) {
+  .header {
+    height: 75px;
+  }
+
+  .card-image,
+  .logo {
+    position: relative;
+    margin-left: 10px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+  }
+
+  .card-image .card-img .logo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+  .logo .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+
+  .width__caption,
+  .width__value,
+  .height__caption,
+  .height__value {
+    font-size: 16px;
+  }
+  .input__wrapper {
+    height: 110px;
+  }
+
+  .test__caption {
+    width: 300px;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .input__output {
+    width: 130px;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .lesson__caption {
+    height: 30px;
+    margin: 5px 0 0 0;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .slide-container {
+    /* My */
+    margin-top: 0;
+    max-width: 429x;
+    width: 100%;
+
+    padding: 40px 0;
+  }
+  .slide-content {
+    margin-top: 0;
+  }
+}
+@media (max-width: 384px) {
+  .header {
+    height: 75px;
+  }
+
+  .card-image,
+  .logo {
+    position: relative;
+    margin-left: 10px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+  }
+
+  .card-image .card-img .logo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+  .logo .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+
+  .width__caption,
+  .width__value,
+  .height__caption,
+  .height__value {
+    font-size: 16px;
+  }
+  .input__wrapper {
+    height: 110px;
+  }
+  .test__caption {
+    width: 300px;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .input__output {
+    width: 130px;
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .lesson__caption {
+    height: 30px;
+    margin: 5px 0 0 0;
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .slide-container .swiper {
+    margin-top: -10px;
+    max-width: 429x;
+    width: 100%;
+
+    padding: 40px 0;
+  }
+
+  .slide-content {
+    margin-top: 0;
   }
 }
