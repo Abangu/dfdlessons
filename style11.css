@@ -1,0 +1,523 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: hsl(197, 100%, 86%); */
+  /* !!!!!! */
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* HAT */
+.header {
+  display: flex;
+  justify-content: space-between; /* Элементы растягиваются по краям */
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1120px;
+  width: 100%; /* Контейнер должен иметь ширину */
+  height: 100px;
+  background-color: #265df2;
+}
+
+.info__check {
+  align-items: flex-start;
+}
+
+.info__width,
+.info__height {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.width__caption,
+.width__value {
+  font-size: 20px;
+  /* background-color: #f0f0f0; */
+  color: #fff;
+  padding: 0 10px 0 0;
+  text-align: left;
+}
+
+.height__caption,
+.height__value {
+  font-size: 20px;
+  /* background-color: #f0f0f0; */
+  color: #fff;
+  padding: 10px 10px 0 0;
+  text-align: left;
+}
+
+.width__value,
+.height__value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* SLIDER */
+.input__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Элементы в колонку */
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1120px;
+}
+/* My */
+.input__output {
+  padding: 5px;
+  border: 2px solid #265df2;
+  border-radius: 6px;
+  width: 300px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.test__caption {
+  width: 300px;
+  margin: 30px 0 20px 0;
+  padding: 5px;
+  font-size: 24px;
+  text-align: center;
+  /* border: 2px solid #265df2;
+  border-radius: 6px; */
+}
+.lesson__caption {
+  height: 50px;
+  margin: 30px 0 0 0;
+  padding: 5px;
+  font-size: 22px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 2px solid #265df2;
+  border-radius: 6px; */
+}
+
+.slide-container {
+  /* My */
+  margin-top: 30px;
+  max-width: 1120px;
+  width: 100%;
+  background-color: hsl(197, 100%, 86%);
+  padding: 40px 0;
+}
+
+.slide-content {
+  /* padding: 45px 20px; */
+  margin: 0 40px;
+  /* background-color: red; */
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.card {
+  /* width: 320px; */
+  height: 350px;
+  border-radius: 25px;
+  background-color: #fff;
+}
+
+.card .media-icons {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .media-icons i {
+  color: #ff0000;
+  opacity: 0.8;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.card .media-icons i:hover {
+  opacity: 1;
+}
+
+.image-content,
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.card-content1 {
+  margin-top: 154px;
+  height: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+  color: #fff;
+  background-color: #5353539a;
+  border-radius: 0 0 25px 25px;
+}
+
+.image-content {
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #4070f4;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  /* background-color: red; */
+  background-color: #4070f4;
+}
+
+.overlay::after {
+  border-radius: 0 25px 0 0;
+  /* background-color: #265df2; */
+  background-color: #fff;
+}
+
+.card-image,
+.logo {
+  position: relative;
+  margin-left: 10px;
+  /* height: 150px;
+  width: 150px; */
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 3px;
+}
+
+.card-image .card-img .logo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070f4;
+}
+.logo .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070f4;
+}
+
+.name {
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  /* color: #333; */
+  color: #fff;
+}
+
+.description {
+  margin-top: 20px;
+  width: 90%;
+  font-size: 18px;
+  text-align: left;
+  /* color: #707070; */
+  color: #fff;
+
+  /* text-align: center; */
+}
+
+.pointer {
+  position: absolute;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  padding: 8px 16px;
+  background-color: #4070f4;
+  border-radius: 6px;
+  margin-top: 120px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pointer:hover {
+  background: #265df2;
+}
+
+.swiper-navBtn {
+  color: #6e93f7;
+  transition: color 0.3s ease;
+}
+.swiper-navBtn:hover {
+  color: #4070f4;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 40px;
+}
+.swiper-pointer-next {
+  right: 0;
+}
+.swiper-pointer-prev {
+  left: 0;
+}
+
+.swiper-pagination-bullet {
+  background-color: #6e93f7;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background-color: #4070f4;
+}
+
+.button__test {
+  display: flex;
+  justify-content: center; /* По горизонтали */
+  align-items: center; /* По вертикали */
+
+  margin-top: 100px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #4070f4;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  max-width: 1120px;
+  width: 100%; /* Контейнер должен иметь ширину */
+  height: 50px;
+  background-color: #265df2;
+  margin-top: auto;
+}
+.footer-gen__field {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-gen__field p {
+  text-align: center;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-container .swiper {
+    /* Улучшенный вариант для мобильных (учитывает панели браузера) */
+    height: 100dvh;
+  }
+
+  .slide-content {
+    margin: 0 10px;
+  }
+
+  .swiper-navBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 429px) and (min-width: 406px) {
+  .input__wrapper {
+    height: 160px;
+  }
+
+  .input__output {
+    width: 130px;
+    padding: 5px;
+  }
+  .test__caption {
+    width: 300px;
+    margin: 10px 0 5px 0;
+  }
+
+  .lesson__caption {
+    height: 30px;
+    margin: 10px 0 0 0;
+    padding: 5px;
+  }
+
+  .slide-container {
+    /* My */
+    margin-top: 0;
+    max-width: 429x;
+    width: 100%;
+
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 405px) and (min-width: 385px) {
+  .header {
+    height: 75px;
+  }
+
+  .card-image,
+  .logo {
+    position: relative;
+    margin-left: 10px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+  }
+
+  .card-image .card-img .logo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+  .logo .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+
+  .width__caption,
+  .width__value,
+  .height__caption,
+  .height__value {
+    font-size: 16px;
+  }
+  .input__wrapper {
+    height: 110px;
+  }
+
+  .test__caption {
+    width: 300px;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .input__output {
+    width: 130px;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .lesson__caption {
+    height: 30px;
+    margin: 5px 0 0 0;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .slide-container {
+    /* My */
+    margin-top: 0;
+    max-width: 429x;
+    width: 100%;
+
+    padding: 40px 0;
+  }
+  .slide-content {
+    margin-top: 0;
+  }
+}
+@media (max-width: 384px) {
+  .header {
+    height: 75px;
+  }
+
+  .card-image,
+  .logo {
+    position: relative;
+    margin-left: 10px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+  }
+
+  .card-image .card-img .logo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+  .logo .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+
+  .width__caption,
+  .width__value,
+  .height__caption,
+  .height__value {
+    font-size: 16px;
+  }
+  .input__wrapper {
+    height: 110px;
+  }
+  .test__caption {
+    width: 300px;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .input__output {
+    width: 130px;
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .lesson__caption {
+    height: 30px;
+    margin: 5px 0 0 0;
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .slide-container .swiper {
+    margin-top: -10px;
+    max-width: 429x;
+    width: 100%;
+
+    padding: 40px 0;
+  }
+
+  .slide-content {
+    margin-top: 0;
+  }
+}
